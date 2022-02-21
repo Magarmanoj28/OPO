@@ -42,7 +42,7 @@ class FindTest {
 				return -1;
 			if (haystack[index] == needle)
 				return index;
-			//index++;
+			index++;
 		}
 	}
 	
@@ -88,9 +88,45 @@ class FindTest {
 		else
 			return -1;
 	}
+	/**
+	 * 
+	 * @param array
+	 * @pre The given array is not null
+	 * 		| array != null
+	 * @post All elements that were in the array initially are still in the arrayn and equally many times.
+	 * 		| Array.stream(array).allMatch(e->
+	 * 		|	Array.stream(array).filter(e1->e1==e).count() == Array.stream(old(array.clone())).filter(e1->e1==e).count())
+	 * @post The array is in ascending order.
+	 *     | IntStream.range(0, haystack.length - 1).allMatch(i ->
+	 *     |     IntStream.range(i + 1, haystack.length).allMatch(j ->
+	 *     |          haystack[i] <= haystack[j]
+	 *     |     )
+	 *     | )
+	 */
 	
 	void sort(int[] array) {
+		for (int n = array.length; 0 <= n; n--) {
+			for(int i=0; i<n-1;i++) {
+				if(array[i]> array[i+1]) {
+					int x = array[i];
+					array[i] = array[i+1];
+					array[i+1] = x;
+				}
+			}
+		}
 		
+	}
+	
+	void insert(int []array, int n, int v) {
+		
+		
+	}
+	
+	@Test
+	void testInsert() {
+		int[] myArray = {10, 20, 30, 25};
+		insert(myArray, 3, 17);
+		assertArrayEquals(new int[] {10,17, 20, 30}, myArray);
 	}
 
 	@Test
