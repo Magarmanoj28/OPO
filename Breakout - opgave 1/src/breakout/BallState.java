@@ -23,10 +23,10 @@ public class BallState {
 		return velocity;
 	}
 	public Point getTopleft() {
-		return center.plus(new Vector(diameter/2, diameter/2));
+		return center.minus(new Vector(diameter/2, diameter/2));
 	}
 	public Point getBottomRight() {
-		return center.minus(new Vector(diameter/2, diameter/2));
+		return center.plus(new Vector(diameter/2, diameter/2));
 	}
 	
 }
