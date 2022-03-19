@@ -9,10 +9,10 @@ public class PaddleState {
 		this.size = size;
 	}
 	public Point getTopLeft() {
-		return center.plus(size);
+		return center.minus(size);
 	}
 	public Point getBottomRight() {
-		return center.minus(size);
+		return center.plus(size);
 	}
 }
 //TODO: implement // Done
